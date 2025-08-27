@@ -1,30 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import "./Testimonials.css";
+import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import './Testimonials.css';
 
 const Testimonials: React.FC = () => {
-  const testimonialsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-slide-left");
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    testimonialsRef.current.forEach((testimonial) => {
-      if (testimonial) observer.observe(testimonial);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  // Use the new scroll animation hook with slide-left animation
+  const { setElementRef } = useScrollAnimation({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+    animationClass: 'animate-slide-left',
+    triggerOnce: false, // Allow repeated animations
+  });
 
   const testimonials = [
     {
@@ -63,9 +48,7 @@ const Testimonials: React.FC = () => {
             <div
               key={testimonial.id}
               className="testimonial-card"
-              ref={(el) => {
-                testimonialsRef.current[index] = el;
-              }}>
+              ref={setElementRef(index)}>
               <div className="testimonial-image">
                 <img src={testimonial.image} alt={testimonial.author} />
               </div>
