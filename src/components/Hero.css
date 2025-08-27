@@ -1,0 +1,167 @@
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url("/images/bride_back.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding-top: 80px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: clamp(15px, 3vw, 20px);
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  margin-bottom: clamp(25px, 5vw, 40px);
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: clamp(15px, 3vw, 20px);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background: #8b4b6b;
+  color: white;
+  padding: clamp(12px, 2.5vw, 18px) clamp(25px, 4vw, 40px);
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  text-shadow: none;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  background: #6d3651;
+}
+
+.cta-button:focus {
+  outline: 2px solid #c9a96e;
+  outline-offset: 2px;
+}
+
+.cta-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-secondary:hover {
+  background: white;
+  color: #8b4b6b;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+    background-attachment: scroll;
+  }
+
+  .hero-content {
+    padding: 0 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 90vh;
+    padding-top: 120px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: 100vh;
+    padding-top: 60px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .cta-button {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+      url("/images/490657388_1209572594503027_5731812649847377162_n.jpg");
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .cta-button:hover {
+    transform: none;
+  }
+}

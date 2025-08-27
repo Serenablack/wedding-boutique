@@ -1,0 +1,133 @@
+.designers {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #2c2c2c;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.designers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.designer-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.designer-card.animate-zoom-in {
+  animation: zoomIn 0.6s ease forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.designer-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.designer-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.designer-card:hover img {
+  transform: scale(1.05);
+}
+
+.designer-card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.designer-card h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #8b4b6b;
+}
+
+.designer-card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Stagger animation for cards */
+.designer-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.designer-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.designer-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.designer-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .designers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .designer-card {
+    opacity: 1;
+    transform: scale(1);
+    animation: none;
+  }
+
+  .designer-card:hover {
+    transform: none;
+  }
+
+  .designer-card img {
+    transition: none;
+  }
+
+  .designer-card:hover img {
+    transform: none;
+  }
+}

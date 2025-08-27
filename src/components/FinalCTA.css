@@ -1,0 +1,200 @@
+.final-cta {
+  background: linear-gradient(135deg, #8b4b6b 0%, #6d3651 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-content {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.cta-content.animate-bounce-in {
+  animation: bounceIn 0.8s ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.final-cta h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 20px;
+  color: white;
+}
+
+.final-cta p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Working Hours CTA Section */
+.working-hours-cta {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.working-hours-cta h3 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 15px;
+  color: white;
+}
+
+.working-hours-cta p {
+  margin-bottom: 10px;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+
+.hours-info {
+  margin-top: 20px;
+}
+
+.hours-info p {
+  margin-bottom: 8px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.appointment-note {
+  margin-top: 15px !important;
+  font-size: 0.9rem !important;
+  opacity: 0.9;
+  color: #f0e6f0;
+}
+
+.cta-buttons {
+  margin-bottom: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background: white;
+  color: #8b4b6b;
+  padding: clamp(15px, 3vw, 20px) clamp(30px, 5vw, 40px);
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: #f8f4f0;
+}
+
+.cta-button:focus {
+  outline: 2px solid #c9a96e;
+  outline-offset: 2px;
+}
+
+.cta-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-secondary:hover {
+  background: white;
+  color: #8b4b6b;
+}
+
+.cta-facebook {
+  background: #1877f2;
+  color: white;
+  border: 2px solid #1877f2;
+}
+
+.cta-facebook:hover {
+  background: #166fe5;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+}
+
+.cta-footer {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.business-highlights {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .final-cta {
+    padding: 60px 0;
+  }
+
+  .final-cta h2 {
+    font-size: 2rem;
+  }
+
+  .final-cta p {
+    font-size: 1rem;
+  }
+
+  .working-hours-cta {
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .cta-content {
+    opacity: 1;
+    transform: scale(1);
+    animation: none;
+  }
+
+  .cta-button:hover {
+    transform: none;
+  }
+}
