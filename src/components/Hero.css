@@ -1,7 +1,7 @@
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
-    url("/images/bride_back.jpg");
+    url('/images/bride_back.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -11,6 +11,11 @@
   color: white;
   padding-top: 80px;
   position: relative;
+  transition: opacity 0.5s ease;
+}
+
+.hero.image-loaded {
+  opacity: 1;
 }
 
 .hero-content {
@@ -20,7 +25,7 @@
 }
 
 .hero-content h1 {
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 700;
   margin-bottom: clamp(15px, 3vw, 20px);
@@ -49,7 +54,7 @@
   padding: clamp(12px, 2.5vw, 18px) clamp(25px, 4vw, 40px);
   border-radius: 30px;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   display: inline-block;
@@ -151,7 +156,7 @@
 @media (prefers-contrast: high) {
   .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
-      url("/images/490657388_1209572594503027_5731812649847377162_n.jpg");
+      url('/images/490657388_1209572594503027_5731812649847377162_n.jpg');
   }
 }
 

@@ -1,30 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './DesignerShowcase.css';
 
 const DesignerShowcase: React.FC = () => {
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-zoom-in');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      }
-    );
-
-    cardsRef.current.forEach(card => {
-      if (card) observer.observe(card);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  // Use the new scroll animation hook with repeated animations
+  const { setElementRef } = useScrollAnimation({
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px',
+    animationClass: 'animate-zoom-in',
+    triggerOnce: false, // Allow animations to repeat
+  });
 
   const designers = [
     {
@@ -68,9 +53,7 @@ const DesignerShowcase: React.FC = () => {
             <div
               key={designer.id}
               className='designer-card'
-              ref={el => {
-                cardsRef.current[index] = el;
-              }}
+              ref={setElementRef(index)}
             >
               <img src={designer.image} alt={designer.name} />
               <div className='designer-card-content'>
